@@ -1,0 +1,136 @@
+
+/* Pro modal entrance animation */
+#pro-modal > div,
+#skins-modal > div,
+#mp-modal > div {
+    animation: modalSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Gold shimmer effect on Pro button */
+#pro-banner button:first-of-type {
+    position: relative;
+    overflow: hidden;
+}
+#pro-banner button:first-of-type::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255,255,255,0.3);
+    transform: rotate(30deg);
+    animation: shimmer 2.5s infinite;
+}
+@keyframes shimmer {
+    0% { left: -75%; }
+    100% { left: 125%; }
+}
+
+/* Blitz timer pulse when low on time */
+#blitz-red.danger,
+#blitz-white.danger {
+    animation: timerPulse 0.8s infinite;
+}
+@keyframes timerPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Waiting dots animation */
+#mp-waiting-dots {
+    display: inline-block;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+/* Skins grid hover */
+#skins-grid > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+/* Achievement toast special style */
+.toast-achievement {
+    background: linear-gradient(135deg, var(--gold), var(--accent2)) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+
+/* Multiplayer room code font */
+#mp-code-display {
+    user-select: all;
+    transition: background 0.15s;
+}
+#mp-code-display:hover {
+    background: var(--bg3) !important;
+}
+
+/* City badge in leaderboard */
+.city-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(200, 150, 90, 0.15);
+    color: var(--accent2);
+    border: 1px solid rgba(200, 150, 90, 0.3);
+}
+
+/* Pro label on Pro-only features */
+.pro-label {
+    font-size: 9px;
+    background: var(--gold);
+    color: #000;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin-left: auto;
+}
+
+/* Blitz timer bar */
+#blitz-timer-bar {
+    animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile modal adjustments */
+@media (max-width: 600px) {
+    #pro-modal > div,
+    #skins-modal > div,
+    #mp-modal > div {
+        padding: 24px 16px;
+        border-radius: 16px 16px 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-bottom: none;
+    }
+    #pro-modal,
+    #skins-modal,
+    #mp-modal {
+        align-items: flex-end !important;
+    }
+    @keyframes modalSlideIn {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
